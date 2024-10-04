@@ -23,7 +23,7 @@ ENV CATALINA_BASE /usr/local/tomcat
 
 # Copy your web application (WAR file) to the Tomcat webapps directory
 # Replace `your-app.war` with the actual WAR file you want to deploy
-COPY your-app.war ${CATALINA_HOME}/webapps/
+COPY target/jpetstore.war ${CATALINA_HOME}/webapps/
 
 # Expose the default Tomcat port
 EXPOSE 8080
