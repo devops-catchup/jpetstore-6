@@ -14,8 +14,19 @@
 #    limitations under the License.
 #
 
-FROM openjdk:17.0.2
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
-RUN ./mvnw clean package
-CMD ./mvnw cargo:run -P tomcat90
+# Use the official Tomcat image from the Docker Hub
+FROM tomcat:9.0
+
+# Set environment variables (optional)
+ENV CATALINA_HOME /usr/local/tomcat
+ENV CATALINA_BASE /usr/local/tomcat
+
+# Copy your web application (WAR file) to the Tomcat webapps directory
+# Replace `your-app.war` with the actual WAR file you want to deploy
+COPY your-app.war ${CATALINA_HOME}/webapps/
+
+# Expose the default Tomcat port
+EXPOSE 8080
+
+# Start Tomcat server
+CMD ["catalina.sh", "run"]
