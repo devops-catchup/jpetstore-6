@@ -25,4 +25,4 @@
       command: docker push dockerkube1007/petstore:latest
 
     - name: Run container
-      command: docker run -d --name pet3 -p 8083:8080 dockerkube1007/petstore:latest
+      command: docker run -d --name pet4 -p 8084:8080 dockerkube1007/petstore:latest
